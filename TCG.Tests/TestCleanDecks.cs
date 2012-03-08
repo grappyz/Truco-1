@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentAssertions;
@@ -53,6 +54,33 @@ namespace TCG.Tests
                 var card = new Card('2', symbol.Key);
                 var turnedCard = new Card('A', 'S');
                 cardManager.GetCardValue(card, turnedCard).Should().Be(symbolValues[symbol.Key]);
+            }            
+        }
+
+        [Test]
+        public void ShouldThrowErroWithAnInexistentCard()
+        {
+            var inexistentCard = new Card('5', 'P');
+            var turnedCard = new Card('A', 'S');
+
+            try
+            {
+                cardManager.GetCardValue(inexistentCard, turnedCard);
+                Assert.Fail("Should never get here with an Inexistent card");
+            }
+            catch (TrucoException ex)
+            {
+                ex.Message.Should().Be("The card does not exist.");
+            }
+        }
+
+        [Test]
+        public void DoNotConsiderManilhaWhenHasNotAnyTurnedCard()
+        {
+            foreach (var nameValue in nameValues)
+            {
+                var card = new Card(nameValue.Key, 'S');
+                cardManager.GetCardValue(card, null).Should().Be(nameValues[nameValue.Key]);
             }            
         }
     }

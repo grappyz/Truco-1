@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HandTests.cs" />
+    <Compile Include="IntegratedRoundAndCleanDeckTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundTests.cs" />
     <Compile Include="TestCleanDecks.cs" />

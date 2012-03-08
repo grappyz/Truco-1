@@ -34,12 +34,15 @@ namespace TCG
 
         public int GetCardValue(Card selectedCard, Card turnedCard)
         {
+            if (!nameValues.ContainsKey(selectedCard.Name) || !symbolValues.ContainsKey(selectedCard.Symbol))
+                throw new TrucoException("The card does not exist.");
+
             return IsManilha(selectedCard, turnedCard) ? symbolValues[selectedCard.Symbol] : nameValues[selectedCard.Name];
         }
 
         private bool IsManilha(Card selectedCard, Card turnedCard)
         {
-            return ManilhaMapping[turnedCard.Name] == selectedCard.Name;
+            return (turnedCard != null) && (ManilhaMapping[turnedCard.Name] == selectedCard.Name);
         }
     }
 }
