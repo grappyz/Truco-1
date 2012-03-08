@@ -1,0 +1,14 @@
+#Truco
+
+This is a card game played in Brazil. Each user receives 3 cards and on is turned over the table. This card will define which cards will be the "Manilha". "Manilha" is the highest card in the game ordered by Spades the highest called Zap, followed by Hearts, Spades and Diamond.
+
+This Truco is using the Clean Card Deck which means that respect tha table:
+
+Highest
+3
+2
+A
+K
+J
+Q
+Lower
