@@ -71,6 +71,7 @@
     <Compile Include="IntegratedRoundAndCleanDeckTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundTests.cs" />
+    <Compile Include="TestCardMixer.cs" />
     <Compile Include="TestCleanDecks.cs" />
   </ItemGroup>
   <ItemGroup>

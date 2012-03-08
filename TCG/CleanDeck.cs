@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TCG
 {
@@ -31,6 +32,18 @@ namespace TCG
                                                            {'2','3'},
                                                            {'3','Q'}
                                                           };
+
+        public CleanDeck()
+        {
+            Cards = CreateCardsDeck();
+        }
+
+        private IEnumerable<Card> CreateCardsDeck()
+        {
+            return from symbolValue in symbolValues from nameValue in nameValues select new Card(nameValue.Key, symbolValue.Key);
+        }
+
+        public IEnumerable<Card> Cards { get; private set; }
 
         public int GetCardValue(Card selectedCard, Card turnedCard)
         {

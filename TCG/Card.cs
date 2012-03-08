@@ -8,6 +8,13 @@ namespace TCG
             this.Symbol = symbol;
         }
 
+        public override bool Equals(object obj)
+        {
+            var cardObj = (Card) obj;
+
+            return cardObj.Name == Name && cardObj.Symbol == Symbol;
+        }
+
         public char Symbol { get; private set; }
 
         public char Name { get; private set; }

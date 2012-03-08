@@ -42,8 +42,8 @@ namespace TCG.Tests
             foreach (var nameValue in nameValues)
             {
                 var card = new Card(nameValue.Key, 'S');
-                cardManager.GetCardValue(card, card).Should().Be(nameValues[nameValue.Key]);    
-            }            
+                cardManager.GetCardValue(card, card).Should().Be(nameValues[nameValue.Key]);
+            }
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace TCG.Tests
                 var card = new Card('2', symbol.Key);
                 var turnedCard = new Card('A', 'S');
                 cardManager.GetCardValue(card, turnedCard).Should().Be(symbolValues[symbol.Key]);
-            }            
+            }
         }
 
         [Test]
@@ -81,7 +81,27 @@ namespace TCG.Tests
             {
                 var card = new Card(nameValue.Key, 'S');
                 cardManager.GetCardValue(card, null).Should().Be(nameValues[nameValue.Key]);
-            }            
+            }
+        }
+
+        [Test]
+        public void ShouldContains24Cards()
+        {
+            cardManager.Cards.Count().Should().Be(24);
+        }
+
+        [Test]
+        public void ShouldContainsAllCards()
+        {
+            var cards = CreateCardDeck();
+
+            foreach (var card in cards)
+                cardManager.Cards.Contains(card).Should().BeTrue();
+        }
+
+        private IEnumerable<Card> CreateCardDeck()
+        {
+            return from symbolValue in symbolValues from nameValue in nameValues select new Card(nameValue.Key, symbolValue.Key);
         }
     }
 }
