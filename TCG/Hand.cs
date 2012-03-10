@@ -27,6 +27,8 @@ namespace TCG
 
         public Player ActivePlayer { get; set; }
 
+        public Card TurnedCard { get; set; }
+
         public void Winner(Player player)
         {
             SetScore(player, 3);

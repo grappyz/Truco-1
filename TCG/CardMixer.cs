@@ -31,5 +31,15 @@ namespace TCG
         {
             get { return cards.AsEnumerable(); }
         }
+
+        public List<Card> Raffle(int quantity)
+        {
+            var raffledCards = new List<Card>();
+
+            for (int i = 0; i < quantity; i++)
+                raffledCards.Add(Raffle());
+
+            return raffledCards;
+        }
     }
 }

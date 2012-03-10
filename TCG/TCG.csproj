@@ -43,6 +43,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="CardMixer.cs" />
     <Compile Include="CleanDeck.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="ICardManager.cs" />
     <Compile Include="Player.cs" />
